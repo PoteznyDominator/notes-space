@@ -1,0 +1,12 @@
+.notebook-link {
+  text-decoration: none;
+  color: var(--dark-side-bar-secondary-color);
+  padding: 5px 5px 5px 26px;
+  margin: 5px 0 5px 0;
+  border-radius: 5px;
+}
+
+.notebook-link:hover {
+  background-color: var(--dark-side-bar-third-bg);
+}
+

@@ -1,0 +1,53 @@
+.offcanvas {
+  max-width: 250px;
+  background: var(--dark-side-bar-bg);
+  color: var(--dark-side-bar-color);
+  padding: 0 15px 0 15px;
+}
+
+.offcanvas-header {
+  padding-bottom: 0;
+}
+
+.offcanvas-body {
+  padding: 0;
+}
+
+.sidebar-list, .notebook-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.new-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+a {
+  color: var(--dark-side-bar-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.list-item {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.list-item:hover {
+  background-color: var(--dark-side-bar-secondary-bg);
+}
+
+.list-item-title {
+  i {
+    margin-right: 10px;
+  }
+}
+
+.list-item-helper {
+  i {
+    margin-left: 5px;
+  }
+}
