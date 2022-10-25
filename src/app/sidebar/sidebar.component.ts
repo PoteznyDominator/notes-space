@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotebookModel }     from '../shared/notebook.model';
-import { NoteModel }         from '../shared/note.model';
+import { NotebookService }   from '../shared/notebook.service';
 
 @Component({
   selector:    'app-sidebar',
@@ -9,19 +9,13 @@ import { NoteModel }         from '../shared/note.model';
 })
 export class SidebarComponent implements OnInit {
   isCollapsed = false;
-  notebooks: NotebookModel[] = [
-    new NotebookModel(1, 'EXAMPLE', [
-      new NoteModel(1, 'example note', 'siema siema'),
-      new NoteModel(2, 'dupa', 'siema siema')]),
-    new NotebookModel(2, 'pojeb', [
-      new NoteModel(1, 'example note here', 'kolega obok'),
-      new NoteModel(2, 'hasta la vista', 'z fartem')]),
-  ];
+  notebooks: NotebookModel[];
 
-  constructor() {
+  constructor(private notebookService: NotebookService) {
   }
 
   ngOnInit(): void {
+    this.notebooks = this.notebookService.getAllNotebooks();
   }
 
   notesCount(): number {
