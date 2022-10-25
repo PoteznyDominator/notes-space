@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotebookModel }            from '../../shared/notebook.model';
+import { NotebookService }          from '../../shared/notebook.service';
 
 @Component({
   selector: 'app-notebook-list-item',
@@ -9,9 +10,12 @@ import { NotebookModel }            from '../../shared/notebook.model';
 export class NotebookListItemComponent implements OnInit {
   @Input() notebook: NotebookModel;
 
-  constructor() { }
+  constructor(private notebookService: NotebookService) { }
 
   ngOnInit(): void {
   }
 
+  onNotebookSelected() {
+    this.notebookService.onNotebookSelected.emit(this.notebook);
+  }
 }

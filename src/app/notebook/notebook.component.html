@@ -1,0 +1,16 @@
+<div class="notebook-window">
+  <div class="notes-list-sidebar">
+    <div class="note-list-header">
+      <h4>{{notebook.title}}</h4>
+      <!--    searchbaar-->
+    </div>
+    <ul class="notes-list">
+      <li *ngFor="let note of notebook.notes" class="note-list-item">
+          <app-note-list-item [note]="note"></app-note-list-item>
+      </li>
+    </ul>
+  </div>
+  <div class="main">
+    aaaa
+  </div>
+</div>

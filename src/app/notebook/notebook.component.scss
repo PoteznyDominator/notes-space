@@ -1,0 +1,31 @@
+.notes-list-sidebar {
+  height: 100vh;
+  width: 300px;
+  background-color: var(--note-list-bg);
+  border-right: 1px solid var(--note-list-border);
+}
+
+.notebook-window {
+  display: flex;
+}
+
+.note-list-header {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.notes-list {
+  padding: 0;
+  list-style-type: none;
+  border-bottom: 1px solid var(--note-list-border);
+  cursor: pointer;
+}
+
+.note-list-item {
+  padding-top: 10px;
+  border-top: 1px solid var(--note-list-border);
+}
+
+.note-list-item:hover {
+  background-color: var(--note-list-item-hover);
+}
