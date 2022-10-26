@@ -1,13 +1,16 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent }     from './app.component';
-import { NgbModule }        from '@ng-bootstrap/ng-bootstrap';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { AppRoutingModule }          from './app-routing.module';
+import { AppComponent }              from './app.component';
+import { NgbModule }                 from '@ng-bootstrap/ng-bootstrap';
+import { SidebarComponent }          from './sidebar/sidebar.component';
 import { NotebookListItemComponent } from './sidebar/notebook-list-item/notebook-list-item.component';
-import { NotebookComponent } from './notebook/notebook.component';
-import { NoteListItemComponent } from './notebook/note-list-item/note-list-item.component';
+import { NotebookComponent }         from './notebook/notebook.component';
+import { NoteListItemComponent }     from './notebook/note-list-item/note-list-item.component';
+import { NoteComponent }             from './notebook/note/note.component';
+import { NoteHeaderComponent }       from './notebook/note/note-header/note-header.component';
+import { BrowserAnimationsModule }   from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,12 @@ import { NoteListItemComponent } from './notebook/note-list-item/note-list-item.
     NotebookListItemComponent,
     NotebookComponent,
     NoteListItemComponent,
+    NoteComponent,
+    NoteHeaderComponent,
   ],
   imports:      [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule
   ],

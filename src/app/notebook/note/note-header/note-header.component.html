@@ -1,0 +1,14 @@
+<div class="panel-container d-flex justify-content-between align-items-center">
+  <div class="left-menu d-flex align-items-center">
+    <button (click)="toggleSidebar()" class="expand-btn">
+      <i class="bi bi-chevron-left" [ngClass]="{rotated: isRotated}"></i>
+    </button>
+    <i class="bi bi-journal-bookmark"></i>
+    <h6 class="notebook-title">{{notebookTitle}}</h6>
+  </div>
+
+  <div class="right-menu">
+    <button class="btn btn-primary share-btn">Share</button>
+    <button class="btn more-btn"><i class="bi bi-three-dots-vertical"></i></button>
+  </div>
+</div>
