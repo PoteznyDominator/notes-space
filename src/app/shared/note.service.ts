@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
-import { NoteModel }  from './note.model';
+import { EventEmitter, Injectable } from '@angular/core';
+import { NoteModel }                from './note.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoteService {
+  constructor() {
+  }
+
   private allNotes: NoteModel[] = [
     {
       parentId: 1, id: 1, title: 'example note here to use', desc: 'patatatata tatat ' +
@@ -31,9 +34,6 @@ export class NoteService {
       date:     new Date(),
     },
   ];
-
-  constructor() {
-  }
 
   getAllNotes(): NoteModel[] {
     // returning copy to avoid changing array from outside

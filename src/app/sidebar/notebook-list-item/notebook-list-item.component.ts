@@ -17,5 +17,6 @@ export class NotebookListItemComponent implements OnInit {
 
   onNotebookSelected() {
     this.notebookService.onNotebookSelected.emit(this.notebook);
+
   }
 }
