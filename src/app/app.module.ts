@@ -11,6 +11,7 @@ import { NoteListItemComponent }     from './notebook/note-list-item/note-list-i
 import { NoteComponent }             from './notebook/note/note.component';
 import { NoteHeaderComponent }       from './notebook/note/note-header/note-header.component';
 import { BrowserAnimationsModule }   from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule }   from '@angular/platform-browser/animations'
     NoteListItemComponent,
     NoteComponent,
     NoteHeaderComponent,
+    HomeComponent,
   ],
   imports:      [
     BrowserModule,
