@@ -11,7 +11,9 @@ import { NoteListItemComponent }     from './notebook/note-list-item/note-list-i
 import { NoteComponent }             from './notebook/note/note.component';
 import { NoteHeaderComponent }       from './notebook/note/note-header/note-header.component';
 import { BrowserAnimationsModule }   from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent }             from './home/home.component';
+import { ErrorPageComponent }        from './error-page/error-page.component';
+import { AuthGuard }                 from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HomeComponent } from './home/home.component';
     NoteComponent,
     NoteHeaderComponent,
     HomeComponent,
+    ErrorPageComponent,
   ],
   imports:      [
     BrowserModule,
@@ -30,7 +33,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     NgbModule
   ],
-  providers:    [],
+  providers:    [AuthGuard],
   bootstrap:    [AppComponent],
 })
 export class AppModule {}

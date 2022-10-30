@@ -35,12 +35,21 @@ export class NoteService {
     },
   ];
 
+  contains(id: number) : boolean {
+    return this.allNotes.some(value => value.id == id);
+  }
+
   getAllNotes(): NoteModel[] {
     // returning copy to avoid changing array from outside
     return this.allNotes.slice();
   }
 
-  getNotesWithParentId(id: number): NoteModel[] {
-    return this.allNotes.filter(note => note.parentId == id);
+  getNotesWithParentId(parentId: number): NoteModel[] {
+    return this.allNotes.filter(note => note.parentId == parentId);
+  }
+
+  getNote(id: number): NoteModel | undefined {
+    // TODO: Add some kind of error handling when user enter note that doesnt exists
+    return this.allNotes.find(note => note.id == id);
   }
 }
