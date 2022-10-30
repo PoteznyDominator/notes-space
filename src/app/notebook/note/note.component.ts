@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NoteService }              from '../../shared/note.service';
+import { Component, OnInit } from '@angular/core';
+import { NoteService }       from '../../shared/note.service';
 import { NoteModel }         from '../../shared/note.model';
-import { NotebookService }   from '../../shared/notebook.service';
+import { NotebookService }        from '../../shared/notebook.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription }           from 'rxjs';
 
 @Component({
   selector:    'app-note',
@@ -9,12 +11,16 @@ import { NotebookService }   from '../../shared/notebook.service';
   styleUrls:   ['./note.component.scss'],
 })
 export class NoteComponent implements OnInit {
-  @Input() note: NoteModel |undefined;
+  note: NoteModel;
+  paramsSubscription : Subscription;
 
-  constructor(private noteService: NoteService, private notebookService: NotebookService) {
+  constructor(private noteService: NoteService, private notebookService: NotebookService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
+      this.note = this.noteService.getNote(+params['id'])!;
+    });
   }
 
   getNotebookTitle(): string {
@@ -22,7 +28,6 @@ export class NoteComponent implements OnInit {
       return '';
     }
 
-    const notebook = this.notebookService.getNotebook(this.note.parentId);
-    return notebook ? notebook.title : '';
+    return this.notebookService.getNotebook(this.note.parentId)?.title!;
   }
 }
