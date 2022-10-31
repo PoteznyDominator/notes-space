@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NoteModel }                    from '../shared/note.model';
+import { Component, OnDestroy, OnInit }               from '@angular/core';
+import { NoteModel }                                  from '../shared/note.model';
 import { NotebookService }                            from '../shared/notebook.service';
 import { NotebookModel }                              from '../shared/notebook.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ActivatedRoute, Params }                     from '@angular/router';
+import { ActivatedRoute, Params, Router }             from '@angular/router';
 import { Subscription }                               from 'rxjs';
+import { NoteService }                                from '../shared/note.service';
 
 @Component({
   selector:    'app-notebook',
@@ -37,9 +38,10 @@ import { Subscription }                               from 'rxjs';
 export class NotebookComponent implements OnInit, OnDestroy {
   notebook: NotebookModel;
   isSideBarHidden: boolean = false;
-  paramsSubscription : Subscription;
+  paramsSubscription: Subscription;
 
-  constructor(private notebookService: NotebookService, private route: ActivatedRoute) {
+  constructor(private notebookService: NotebookService, private noteService: NoteService,
+              private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -47,26 +49,16 @@ export class NotebookComponent implements OnInit, OnDestroy {
       this.isSideBarHidden = !this.isSideBarHidden;
     });
 
-    const notebook = this.notebookService.getNotebook(+this.route.snapshot.params['id']);
-    if (notebook) {
-      this.notebook = notebook;
-    }
-
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      const notebook = this.notebookService.getNotebook(+params['id']);
-      if (notebook) {
-        this.notebook = notebook;
+      // displaying all notes page
+      if (this.router.url.includes('all-notes')) {
+        this.notebook = {title: 'All notes', notes: this.noteService.getAllNotes()};
+      }
+
+      if (params['id']) {
+        this.notebook = this.notebookService.getNotebook(+params['id'])!;
       }
     });
-
-    // // temporary for visual debug
-    // this.notebook = this.notebookService.getAllNotebooks()[0];
-    // this.notebook.currentNote = this.notebook.notes[0];
-    // //Todo: when loading component without currentNote add it as first item of notes
-    //
-    // this.notebookService.onNotebookSelected.subscribe((notebook) => {
-    //   this.notebook = notebook;
-    // });
   }
 
   getSlideValue(): string {

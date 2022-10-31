@@ -22,7 +22,8 @@
         </a>
       </li>
       <li class="list-item">
-        <a class="d-flex justify-content-between align-items-center">
+        <a [routerLink]="['all-notes']" [queryParams]="{allNotes: true}"
+           class="d-flex justify-content-between align-items-center">
           <div class="list-item-title">
             <i class="bi bi-stickies"></i>
             <span>All Notes</span>
