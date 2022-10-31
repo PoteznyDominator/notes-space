@@ -5,11 +5,11 @@ import {
 import { Observable }      from 'rxjs';
 import {
   NoteService,
-}                          from './shared/note.service';
-import { NotebookService } from './shared/notebook.service';
+}                          from '../../shared/note.service';
+import { NotebookService } from '../../shared/notebook.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class NotesGuard implements CanActivate {
   constructor(private notebookService: NotebookService,private noteService: NoteService, private router: Router) {
   }
 
@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
       // nest value after notebook is it's id
       const notebook = this.notebookService.getNotebook(+url[url.indexOf('notebook') + 1]);
       const note = this.noteService.getNote(+route.params['id']);
-      console.log(note, notebook);
+
       if (notebook?.id != note?.parentId) {
         this.router.navigate(['/error']);
         return false;
