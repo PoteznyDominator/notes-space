@@ -3,10 +3,6 @@
     <button (click)="toggleSidebar()" class="expand-btn">
       <i class="bi bi-chevron-left" [ngClass]="{rotated: isRotated}"></i>
     </button>
-    <div *ngIf="notebookTitle !== ''" class="d-flex align-items-center">
-      <i class="bi bi-journal-bookmark"></i>
-      <h6 class="notebook-title">{{notebookTitle}}</h6>
-    </div>
   </div>
 
   <div class="right-menu">

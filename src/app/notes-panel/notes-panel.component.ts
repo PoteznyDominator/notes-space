@@ -1,16 +1,15 @@
 import { Component, OnDestroy, OnInit }               from '@angular/core';
-import { NoteModel }                                  from '../shared/note.model';
-import { NotebookService }                            from '../shared/notebook.service';
-import { NotebookModel }                              from '../shared/notebook.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ActivatedRoute, Params, Router }             from '@angular/router';
 import { Subscription }                               from 'rxjs';
 import { NoteService }                                from '../shared/note.service';
+import { UtilitiesService }                           from '../shared/utilities.service';
+import { NotesDataModel }                             from './notes-data.model';
 
 @Component({
-  selector:    'app-notebook',
-  templateUrl: './notebook.component.html',
-  styleUrls:   ['./notebook.component.scss'],
+  selector:    'app-notes-panel',
+  templateUrl: './notes-panel.component.html',
+  styleUrls:   ['./notes-panel.component.scss'],
   animations:  [
     trigger('SlideSidebar', [
       state('in', style({
@@ -35,38 +34,30 @@ import { NoteService }                                from '../shared/note.servi
     ]),
   ],
 })
-export class NotebookComponent implements OnInit, OnDestroy {
-  notebook: NotebookModel;
+export class NotesPanelComponent implements OnInit, OnDestroy {
+  notesData: NotesDataModel;
   isSideBarHidden: boolean = false;
   paramsSubscription: Subscription;
 
-  constructor(private notebookService: NotebookService, private noteService: NoteService,
+  constructor(private utilitiesService: UtilitiesService, private noteService: NoteService,
               private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.notebookService.toggleSidebar.subscribe(() => {
+    this.utilitiesService.toggleSidebar.subscribe(() => {
       this.isSideBarHidden = !this.isSideBarHidden;
     });
 
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      // displaying all notes page
-      if (this.router.url.includes('all-notes')) {
-        this.notebook = {title: 'All notes', notes: this.noteService.getAllNotes()};
+      if (params['tag'] == 'all') {
+        this.notesData = {title: 'All notes', notes: this.noteService.getAllNotes()}
       }
-
-      if (params['id']) {
-        this.notebook = this.notebookService.getNotebook(+params['id'])!;
-      }
+      // this.notebook = {title: 'All notes', notes: this.noteService.getAllNotes()};
     });
   }
 
   getSlideValue(): string {
     return this.isSideBarHidden ? 'out' : 'in';
-  }
-
-  onNoteSelected(note: NoteModel) {
-    this.notebook.currentNote = note;
   }
 
   // removing subscription when component is deleted

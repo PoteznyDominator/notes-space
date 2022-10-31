@@ -1,19 +1,16 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }        from './home/home.component';
-import { NotebookComponent }    from './notebook/notebook.component';
-import { NoteComponent }        from './notebook/note/note.component';
-import { NotesGuard }           from './notebook/_guards/notes-guard.service';
+import { NotesPanelComponent }  from './notes-panel/notes-panel.component';
+import { NoteComponent }        from './notes-panel/note/note.component';
+import { NotesGuard }           from './notes-panel/_guards/notes-guard.service';
 import { ErrorPageComponent }   from './error-page/error-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'all-notes', component: NotebookComponent, children: [
-      {path: 'note/:id', component: NoteComponent, canActivate: [NotesGuard]},
-    ]},
   {
-    path: 'notebook/:id', component: NotebookComponent, children: [
-      {path: 'note/:id', component: NoteComponent, canActivate: [NotesGuard]},
+    path: 'notes/:tag', component: NotesPanelComponent, children: [
+      {path: ':id', component: NoteComponent, canActivate: [NotesGuard]},
     ],
   },
   {path: 'error', component: ErrorPageComponent},
