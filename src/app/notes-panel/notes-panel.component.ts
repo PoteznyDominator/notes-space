@@ -49,10 +49,14 @@ export class NotesPanelComponent implements OnInit, OnDestroy {
     });
 
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      if (params['tag'] == 'all') {
+      const tagName = params['tag'];
+
+      if (tagName == 'all') {
         this.notesData = {title: 'All notes', notes: this.noteService.getAllNotes()}
+        return;
       }
-      // this.notebook = {title: 'All notes', notes: this.noteService.getAllNotes()};
+
+      this.notesData = {title: tagName, notes: this.noteService.getNotesByTag(tagName)};
     });
   }
 

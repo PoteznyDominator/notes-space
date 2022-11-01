@@ -1,0 +1,5 @@
+<li *ngFor="let tag of tags">
+  <a [routerLink]="['notes', tag]" class="tag-link d-flex justify-content-between">
+    {{tag}}
+  </a>
+</li>
