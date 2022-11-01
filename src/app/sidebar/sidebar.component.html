@@ -31,30 +31,20 @@
         </a>
       </li>
       <li class="list-item">
-        <a>
+        <a (click)="isCollapsed = !isCollapsed"
+           class="d-flex justify-content-between align-items-center">
           <div class="list-item-title">
             <i class="bi bi-tags"></i>
             <span>Tags</span>
           </div>
+          <div class="list-item-helper">
+            <i class="bi bi-chevron-down"></i>
+          </div>
         </a>
+        <ul class="notes-panel-list collapse" [ngbCollapse]="!isCollapsed">
+          <app-tags-list></app-tags-list>
+        </ul>
       </li>
-      <!--      <li class="list-item">-->
-      <!--        <a (click)="isCollapsed = !isCollapsed"-->
-      <!--           class="d-flex justify-content-between align-items-center">-->
-      <!--          <div class="list-item-title">-->
-      <!--            <i class="bi bi-journals"></i>-->
-      <!--            <span>Notebooks</span>-->
-      <!--          </div>-->
-      <!--          <div class="list-item-helper">-->
-      <!--            <span>{{notebooks.length}}</span>-->
-      <!--            <i class="bi bi-chevron-down"></i>-->
-      <!--          </div>-->
-      <!--        </a>-->
-      <!--        <ul class="notes-panel-list collapse" [ngbCollapse]="!isCollapsed">-->
-      <!--          <app-notes-panel-list-item *ngFor="let notes-panel of notebooks"-->
-      <!--                                  [notes-panel]="notes-panel"></app-notes-panel-list-item>-->
-      <!--        </ul>-->
-      <!--      </li>-->
     </ul>
   </div>
 </div>
