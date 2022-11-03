@@ -4,7 +4,8 @@
   padding: 3px 5px 3px 5px;
   margin-right: 5px;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: var(--note-list-item-hover);
   }
 }
@@ -34,7 +35,7 @@
 
 i {
   display: inline-block;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 i.rotated {
@@ -77,4 +78,3 @@ i.rotated {
 .share-btn {
   padding: 3px 10px 3px 10px;
 }
-

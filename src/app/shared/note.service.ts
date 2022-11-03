@@ -1,4 +1,4 @@
-import { Injectable }          from '@angular/core';
+import { Injectable } from '@angular/core';
 import { initNote, NoteModel } from './note.model';
 
 @Injectable({
@@ -24,35 +24,36 @@ export class NoteService {
   //TODO: scuffed as fuck so make interface better and think about default values
   private allNotes: NoteModel[] = [
     initNote({
-      id:       1, title: 'example note here to use', desc: 'patatatata tatat ' +
-                                                            'dasdasdasdasda sdasddddada' +
-                                                            ' dasdwdaeadaaaaaaa adadasdas',
+      id: 1,
+      title: 'example note here to use',
+      desc: 'patatatata tatat ' + 'dasdasdasdasda sdasddddada' + ' dasdwdaeadaaaaaaa adadasdas',
       imageUrl: 'https://picsum.photos/400/400',
     }),
-    initNote(
-      {
-        id: 2, title: 'dupa blada olelela adasdas', desc: 'patatatata tatat dasda' +
-                                                          ' eadasd' +
-                                                          'dasdasdasdasda sdasddddada dasdwdaeadaaaaaaa adadasda',
-      },
-    ),
-    initNote(
-      {
-        id:       3, title: 'example note here', desc: 'kolega obok',
-        imageUrl: 'https://picsum.photos/400/500',
-      },
-    ),
-    initNote(
-      {
-        id:       4, title: 'hasta la vista', desc: 'z fartem',
-        imageUrl: 'https://picsum.photos/200/300',
-      },
-    ),
-    initNote(
-      {
-        id: 5, title: 'hasta la vista', desc: 'z fartem',
-      },
-    ),
+    initNote({
+      id: 2,
+      title: 'dupa blada olelela adasdas',
+      desc:
+        'patatatata tatat dasda' +
+        ' eadasd' +
+        'dasdasdasdasda sdasddddada dasdwdaeadaaaaaaa adadasda',
+    }),
+    initNote({
+      id: 3,
+      title: 'example note here',
+      desc: 'kolega obok',
+      imageUrl: 'https://picsum.photos/400/500',
+    }),
+    initNote({
+      id: 4,
+      title: 'hasta la vista',
+      desc: 'z fartem',
+      imageUrl: 'https://picsum.photos/200/300',
+    }),
+    initNote({
+      id: 5,
+      title: 'hasta la vista',
+      desc: 'z fartem',
+    }),
   ];
 
   getAllTags(): Set<string> {
@@ -83,7 +84,7 @@ export class NoteService {
     this.allTags.add(tag);
   }
 
-  removeTag(id:number, tag: string) {
+  removeTag(id: number, tag: string) {
     const note = this.allNotes.find(note => note.id == id)!;
     note.tags?.delete(tag);
 

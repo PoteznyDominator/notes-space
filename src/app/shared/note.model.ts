@@ -1,10 +1,10 @@
 export interface NoteModel {
-  id: number,
-  title: string,
-  desc?: string,
-  imageUrl?: string,
-  date: Date,
-  tags: Set<string>,
+  id: number;
+  title: string;
+  desc?: string;
+  imageUrl?: string;
+  date: Date;
+  tags: Set<string>;
 }
 
 export function initNote(parameters: Partial<NoteModel>): NoteModel {
@@ -14,10 +14,10 @@ export function initNote(parameters: Partial<NoteModel>): NoteModel {
     title: 'dasda',
     date: new Date(),
     tags: new Set<string>(),
-  }
+  };
 
   return {
     ...defaults,
     ...parameters,
-  }
+  };
 }

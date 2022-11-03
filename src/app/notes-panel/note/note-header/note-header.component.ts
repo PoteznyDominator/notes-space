@@ -1,22 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UtilitiesService }         from '../../../shared/utilities.service';
-import { NoteModel }                from '../../../shared/note.model';
-import { NoteService }              from '../../../shared/note.service';
+import { UtilitiesService } from '../../../shared/utilities.service';
+import { NoteModel } from '../../../shared/note.model';
+import { NoteService } from '../../../shared/note.service';
 
 @Component({
-  selector:    'app-note-header',
+  selector: 'app-note-header',
   templateUrl: './note-header.component.html',
-  styleUrls:   ['./note-header.component.scss'],
+  styleUrls: ['./note-header.component.scss'],
 })
 export class NoteHeaderComponent implements OnInit {
   @Input() note: NoteModel;
   isRotated: boolean = false;
 
-  constructor(private utilitiesService: UtilitiesService, private noteService: NoteService) {
-  }
+  constructor(
+    private utilitiesService: UtilitiesService,
+    private noteService: NoteService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   toggleSidebar() {
     this.isRotated = !this.isRotated;

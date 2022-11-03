@@ -1,11 +1,10 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilitiesService {
-
-  constructor() { }
+  constructor() {}
 
   toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 }

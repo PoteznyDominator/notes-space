@@ -1,17 +1,20 @@
 <div class="d-flex">
   <div class="notes-list-sidebar" [@SlideSidebar]="getSlideValue()">
     <div class="note-list-header">
-      <h4>{{notesData.title}}</h4>
+      <h4>{{ notesData.title }}</h4>
       <!--    searchbaar-->
     </div>
     <ul class="notes-list">
       <li *ngFor="let note of notesData.notes" class="note-list-item">
-        <app-note-list-item [routerLink]="[note.id]" [note]="note"></app-note-list-item>
+        <app-note-list-item
+          [routerLink]="[note.id]"
+          [note]="note"
+        ></app-note-list-item>
       </li>
     </ul>
   </div>
   <div class="main" [@SlideHeader]="getSlideValue()">
     <router-outlet></router-outlet>
-<!--    <app-note *ngIf="notes-panel.notes.length !== 0" [note]="notes-panel.currentNote"></app-note>-->
+    <!--    <app-note *ngIf="notes-panel.notes.length !== 0" [note]="notes-panel.currentNote"></app-note>-->
   </div>
 </div>
