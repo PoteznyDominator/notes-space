@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import {
-  ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree,
-}                     from '@angular/router';
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
-import {
-  NoteService,
-}                     from '../../shared/note.service';
+import { NoteService } from '../../shared/note.service';
 
 @Injectable()
 export class NotesGuard implements CanActivate {
-  constructor(private noteService: NoteService,
-              private router: Router) {
-  }
+  constructor(private noteService: NoteService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot,
-              state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     const request = this.noteService.contains(+route.params['id']);
     if (!request) {
       this.router.navigate(['/error']);

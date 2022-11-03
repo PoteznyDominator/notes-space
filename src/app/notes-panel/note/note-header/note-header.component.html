@@ -1,19 +1,33 @@
 <div class="panel-container d-flex justify-content-between align-items-center">
   <div class="left-menu d-flex align-items-center">
     <button (click)="toggleSidebar()" class="expand-btn">
-      <i class="bi bi-chevron-left" [ngClass]="{rotated: isRotated}"></i>
+      <i class="bi bi-chevron-left" [ngClass]="{ rotated: isRotated }"></i>
     </button>
-    <span class="tag badge rounded-pill bg-primary" *ngFor="let tag of note.tags">
-      <span class="tag-name">{{tag}}</span>
-      <button (click)="removeTag(tag)" type="button" class="btn-close" aria-label="Close"></button>
+    <span
+      class="tag badge rounded-pill bg-primary"
+      *ngFor="let tag of note.tags"
+    >
+      <span class="tag-name">{{ tag }}</span>
+      <button
+        (click)="removeTag(tag)"
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+      ></button>
     </span>
 
-    <input #inputTag (keyup.enter)="addTag(inputTag)" class="add-tag"
-           placeholder="Add a tag...">
+    <input
+      #inputTag
+      (keyup.enter)="addTag(inputTag)"
+      class="add-tag"
+      placeholder="Add a tag..."
+    />
   </div>
 
   <div class="right-menu">
     <button class="btn btn-primary share-btn">Share</button>
-    <button class="btn more-btn"><i class="bi bi-three-dots-vertical"></i></button>
+    <button class="btn more-btn">
+      <i class="bi bi-three-dots-vertical"></i>
+    </button>
   </div>
 </div>

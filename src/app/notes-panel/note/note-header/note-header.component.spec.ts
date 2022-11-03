@@ -8,9 +8,8 @@ describe('NoteHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoteHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [NoteHeaderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NoteHeaderComponent);
     component = fixture.componentInstance;
