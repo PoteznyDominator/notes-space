@@ -19,6 +19,9 @@
   padding: 0;
   cursor: pointer;
 }
+.offcanvas-backdrop {
+  display: none !important;
+}
 
 .new-btn {
   display: flex;

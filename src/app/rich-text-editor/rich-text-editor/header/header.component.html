@@ -1,0 +1,100 @@
+<div class='header'>
+
+  <!-- TODO: try to separate this groups into small components -->
+  <!-- Font size options -->
+  <div class='btn-group'>
+    <button class='btn dropdown-toggle style-dropdown' data-bs-toggle='dropdown'>
+      {{textSize}}
+    </button>
+    <div class='dropdown-menu' (click)='changeTextSize($event)'>
+      <a class='dropdown-item' id='p'>Paragraph</a>
+      <a class='dropdown-item' id='h1'>Header 1</a>
+      <a class='dropdown-item' id='h2'>Header 2</a>
+      <a class='dropdown-item' id='h3'>Header 3</a>
+      <a class='dropdown-item' id='h4'>Header 4</a>
+      <a class='dropdown-item' id='h5'>Header 5</a>
+      <a class='dropdown-item' id='h6'>Header 6</a>
+    </div>
+    <div class='vr'></div>
+  </div>
+
+  <!-- Font options -->
+  <div class='btn-group'>
+    <button class='btn dropdown-toggle style-dropdown' data-bs-toggle='dropdown'>
+      <p class='dropdown-text'>
+        {{currentFont}}
+      </p>
+    </button>
+    <div class='dropdown-menu'>
+      <a *ngFor='let font of fonts' class='dropdown-item' (click)='changeFont(font)'>{{font}}</a>
+    </div>
+    <div class='vr'></div>
+  </div>
+
+  <!-- Font weight/decorations options -->
+  <div class='btn-group'>
+    <button type='button' class='btn' data-bs-toggle='button'
+            id='bold'><i class='bi bi-type-bold'></i></button>
+    <button type='button' class='btn' data-bs-toggle='button'
+            id='italic'><i class='bi bi-type-italic'></i></button>
+    <button type='button' class='btn' data-bs-toggle='button'
+            id='underline'><i class='bi bi-type-underline'></i></button>
+    <button type='button' class='btn' data-bs-toggle='button'
+            id='strikethrough'><i class='bi bi-type-strikethrough'></i></button>
+    <div class='vr'></div>
+  </div>
+
+  <!-- Justify options -->
+  <div class='btn-group'>
+    <input type='radio' class='btn-check' name='alignment' id='option1' autocomplete='off' checked>
+    <label class='btn' for='option1'>
+      <i class='bi bi-text-left'></i>
+    </label>
+
+    <input type='radio' class='btn-check' name='alignment' id='option2' autocomplete='off'>
+    <label class='btn' for='option2'>
+      <i class='bi bi-text-center'></i>
+    </label>
+
+    <input type='radio' class='btn-check' name='alignment' id='option3' autocomplete='off'>
+    <label class='btn' for='option3'>
+      <i class='bi bi-text-right'></i>
+    </label>
+    <!--    <button class='btn active' data-bs-toggle='button'-->
+    <!--            id='justifyLeft'><i class='bi bi-text-left'></i></button>-->
+    <!--    <button class='btn' data-bs-toggle='button' id='justifyCenter'><i class='bi bi-text-center'></i></button>-->
+    <!--    <button class='btn' data-bs-toggle='button' id='justifyRight'><i class='bi bi-text-right'></i></button>-->
+    <div class='vr'></div>
+  </div>
+
+  <!-- List options -->
+  <div class='btn-group'>
+    <button class='btn' data-bs-toggle='button'><i class='bi bi-list-ul'></i></button>
+    <button class='btn' data-bs-toggle='button'><i class='bi bi-list-ol'></i></button>
+    <div class='vr'></div>
+  </div>
+
+  <div class='btn-group'>
+    <div class='color-input-container'>
+      <div class='color-input'>
+        <button class='btn'>A</button>
+        <input (change)='changeColor($event)' type='color' value='#000' list>
+      </div>
+      <div style='width: 20px; height:4px' [ngStyle]="{'background-color': color}"></div>
+    </div>
+
+
+    <div class='color-input-container'>
+      <div class='color-input'>
+        <button class='btn'>
+          <i class='bi bi-paint-bucket'></i>
+        </button>
+        <input (change)='changeBgColor($event)' type='color' value='#000' list>
+      </div>
+      <div style='width: 20px; height:4px' [ngStyle]="{'background-color': bgColor}"></div>
+    </div>
+  </div>
+
+
+</div>
+
