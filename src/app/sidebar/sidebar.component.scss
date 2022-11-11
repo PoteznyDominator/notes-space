@@ -1,15 +1,18 @@
-.offcanvas {
+.sidebar {
   max-width: 250px;
+  height: 100%;
+  overflow-y: hidden;
   background: var(--dark-side-bar-bg);
   color: var(--dark-side-bar-color);
-  padding: 0 15px 0 15px;
+  margin: 0;
+  padding: 15px;
 }
 
-.offcanvas-header {
+.sidebar-header {
   padding-bottom: 0;
 }
 
-.offcanvas-body {
+.sidebar-body {
   padding: 0;
 }
 
@@ -18,9 +21,6 @@
   list-style-type: none;
   padding: 0;
   cursor: pointer;
-}
-.offcanvas-backdrop {
-  display: none !important;
 }
 
 .new-btn {

@@ -60,24 +60,33 @@
     <label class='btn' for='option3'>
       <i class='bi bi-text-right'></i>
     </label>
-    <!--    <button class='btn active' data-bs-toggle='button'-->
-    <!--            id='justifyLeft'><i class='bi bi-text-left'></i></button>-->
-    <!--    <button class='btn' data-bs-toggle='button' id='justifyCenter'><i class='bi bi-text-center'></i></button>-->
-    <!--    <button class='btn' data-bs-toggle='button' id='justifyRight'><i class='bi bi-text-right'></i></button>-->
     <div class='vr'></div>
   </div>
 
   <!-- List options -->
   <div class='btn-group'>
-    <button class='btn' data-bs-toggle='button'><i class='bi bi-list-ul'></i></button>
-    <button class='btn' data-bs-toggle='button'><i class='bi bi-list-ol'></i></button>
+    <input type='checkbox' #olElement (input)='log($event, ulElement)' class='btn-check'
+           name='list'
+           id='ol'
+           autocomplete='off'>
+    <label class='btn' for='ol'>
+      <i class='bi bi-list-ol'></i>
+    </label>
+
+    <input type='checkbox' #ulElement (input)='log($event, olElement)' class='btn-check'
+           name='list'
+           id='ul'
+           autocomplete='off'>
+    <label class='btn' for='ul'>
+      <i class='bi bi-list-ul'></i>
+    </label>
     <div class='vr'></div>
   </div>
 
   <div class='btn-group'>
     <div class='color-input-container'>
       <div class='color-input'>
-        <button class='btn'>A</button>
+        <button class='btn' style='font-weight: bold'>A</button>
         <input (change)='changeColor($event)' type='color' value='#000' list>
       </div>
       <div style='width: 20px; height:4px' [ngStyle]="{'background-color': color}"></div>

@@ -40,4 +40,11 @@ export class HeaderComponent implements OnInit {
   changeBgColor(e: Event) {
     this.bgColor = (e.target as HTMLInputElement).value;
   }
+
+  log(e: Event, secondElement: HTMLInputElement) {
+    let element = e.target as HTMLInputElement;
+    if (element.checked) {
+      secondElement.checked = false;
+    }
+  }
 }

@@ -1,1 +1,24 @@
+.content {
+  padding: 10px;
+}
+
+#note-title {
+  border: none;
+  outline: none;
+  font-size: 26px;
+  font-weight: 600;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+#text-container {
+  overflow-y: auto;
+  outline: none;
+
+  &[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #555;
+  }
+}
 
