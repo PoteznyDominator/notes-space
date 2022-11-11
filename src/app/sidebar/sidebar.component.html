@@ -1,57 +1,53 @@
-<div
-  class="offcanvas offcanvas-start show"
-  aria-labelledby="offcanvasLabel"
-  data-bs-backdrop='false'
->
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">Note-Space</h5>
+<div class='sidebar' data-bs-backdrop='false'>
+  <div class='sidebar-header'>
+    <h5 class='sidebar-title'>Note-Space</h5>
   </div>
   <hr />
-  <div class="offcanvas-body">
-    <button class="new-btn btn btn-primary">
+  <div class='sidebar-body'>
+    <button class='new-btn btn btn-primary'>
       <div>
-        <i class="bi bi-plus-lg"></i>
+        <i class='bi bi-plus-lg'></i>
         New
       </div>
-      <i class="bi bi-chevron-down"></i>
+      <i class='bi bi-chevron-down'></i>
     </button>
-    <ul class="sidebar-list">
-      <li class="list-item">
+    <ul class='sidebar-list'>
+      <li class='list-item'>
         <a
-          class="d-flex justify-content-between align-items-center"
+          class='d-flex justify-content-between align-items-center'
           [routerLink]="['/']"
         >
-          <div class="list-item-title">
-            <i class="bi bi-house"></i>
+          <div class='list-item-title'>
+            <i class='bi bi-house'></i>
             <span>Home</span>
           </div>
         </a>
       </li>
-      <li class="list-item">
+      <li class='list-item'>
         <a
           [routerLink]="['notes', 'all']"
-          class="d-flex justify-content-between align-items-center"
+          class='d-flex justify-content-between align-items-center'
         >
-          <div class="list-item-title">
-            <i class="bi bi-stickies"></i>
+          <div class='list-item-title'>
+            <i class='bi bi-stickies'></i>
             <span>All Notes</span>
           </div>
         </a>
       </li>
-      <li class="list-item">
+      <li class='list-item'>
         <a
-          (click)="isCollapsed = !isCollapsed"
-          class="d-flex justify-content-between align-items-center"
+          (click)='isCollapsed = !isCollapsed'
+          class='d-flex justify-content-between align-items-center'
         >
-          <div class="list-item-title">
-            <i class="bi bi-tags"></i>
+          <div class='list-item-title'>
+            <i class='bi bi-tags'></i>
             <span>Tags</span>
           </div>
-          <div class="list-item-helper">
-            <i class="bi bi-chevron-down"></i>
+          <div class='list-item-helper'>
+            <i class='bi bi-chevron-down'></i>
           </div>
         </a>
-        <ul class="notes-panel-list collapse" [ngbCollapse]="!isCollapsed">
+        <ul class='notes-panel-list collapse' [ngbCollapse]='!isCollapsed'>
           <app-tags-list></app-tags-list>
         </ul>
       </li>
