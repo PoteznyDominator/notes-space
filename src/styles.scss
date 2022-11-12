@@ -20,3 +20,23 @@ body {
 
   --note-header-bg: #f0f0f0;
 }
+
+.vr {
+  margin: 0 5px 0 5px;
+}
+
+.style-select {
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: transparent;
+  padding: 3px 8px 3px 8px;
+  transition: .2s ease-in-out;
+  max-width: 120px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
+  &:focus {
+    border: 1px solid black;
+  }
+}
