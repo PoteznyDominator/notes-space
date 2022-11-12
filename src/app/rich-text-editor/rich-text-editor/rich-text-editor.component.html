@@ -1,7 +1,8 @@
 <app-header></app-header>
 <div class='content'>
-  <input type='text' id='note-title' placeholder='Enter note title...' (keyup.enter)='focusTextContainer()'>
-  <div id='text-container' #textContainer contentEditable='true'
+  <input type='text' id='note-title' placeholder='Enter note title...' value='{{note.title}}'
+         (keyup.enter)='focusTextContainer()'>
+  <div id='text-container' #textContainer contentEditable='true' (click)='log()'
        placeholder='Start writing, dragging files etc...'>
   </div>
 </div>

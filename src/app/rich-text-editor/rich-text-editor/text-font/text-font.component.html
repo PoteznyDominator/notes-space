@@ -1,0 +1,8 @@
+<div class='btn-group'>
+  <select class='style-select' (change)='changeTextFont($event)'>
+    <option *ngFor='let font of fonts'
+            value='{{font}}' selected='{{font == "Arial"}}'>{{font}}</option>
+  </select>
+  <div class='vr'></div>
+</div>
+

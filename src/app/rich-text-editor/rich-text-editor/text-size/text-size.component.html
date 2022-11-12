@@ -1,0 +1,7 @@
+<div class='btn-group'>
+  <select class='style-select' (change)='changeTextHeading($event)'>
+    <option *ngFor='let size of textSizeOptions | keyvalue'
+            value='{{size.value}}' selected='{{size.value == "P"}}'>{{size.key}}</option>
+  </select>
+  <div class='vr'></div>
+</div>

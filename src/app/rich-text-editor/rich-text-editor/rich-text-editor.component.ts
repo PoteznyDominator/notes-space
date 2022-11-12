@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { NoteModel } from '../../shared/note.model';
 
 @Component({
   selector: 'app-rich-text-editor',
@@ -6,6 +7,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./rich-text-editor.component.scss'],
 })
 export class RichTextEditorComponent implements OnInit {
+  @Input() note: NoteModel;
   @ViewChild('textContainer', { static: true }) container: ElementRef;
   constructor() {}
 
@@ -18,5 +20,9 @@ export class RichTextEditorComponent implements OnInit {
 
   focusTextContainer() {
     this.container.nativeElement.focus();
+  }
+
+  log() {
+    console.log(this.container.nativeElement.innerHTML);
   }
 }
