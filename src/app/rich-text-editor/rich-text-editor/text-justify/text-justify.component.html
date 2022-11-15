@@ -1,0 +1,14 @@
+<div class="btn-group">
+  <div *ngFor="let justifyName of justifyOptions">
+    <input type="radio"
+           class="btn-check"
+           name="alignment"
+           id="{{getInputId(justifyName)}}"
+           (click)="changeJustify($event)">
+    <label class="btn"
+           for="{{getInputId(justifyName)}}">
+      <i class="bi bi-text-{{justifyName}}"></i>
+    </label>
+  </div>
+  <div class="vr"></div>
+</div>

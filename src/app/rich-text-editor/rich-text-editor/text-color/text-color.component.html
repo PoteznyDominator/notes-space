@@ -1,0 +1,17 @@
+<div class="btn-group">
+  <div *ngFor="let color of colors | keyvalue" class="color-input-container">
+    <div class="color-input">
+      <button class="btn">
+        <strong *ngIf="color.key == 'foreColor'">A</strong>
+        <i *ngIf="color.key == 'hiliteColor'" class="bi bi-paint-bucket"></i>
+      </button>
+      <input (change)="changeColor($event)"
+             type="color"
+             id="{{color.key}}"
+             value="{{color.value}}"
+             list>
+    </div>
+    <div style="width: 20px; height:4px"
+         [ngStyle]="{'background-color': color.value}"></div>
+  </div>
+</div>

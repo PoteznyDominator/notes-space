@@ -1,4 +1,4 @@
-<div class='header'>
+<div class="header">
 
   <!-- TODO: try to separate this groups into small components -->
   <!-- Font size options -->
@@ -8,75 +8,15 @@
   <app-text-font></app-text-font>
 
   <!-- Font weight/decorations options -->
-  <div class='btn-group'>
-    <button type='button' class='btn' data-bs-toggle='button' (click)='addBold()'
-            id='bold'><i class='bi bi-type-bold'></i></button>
-    <button type='button' class='btn' data-bs-toggle='button'
-            id='italic'><i class='bi bi-type-italic'></i></button>
-    <button type='button' class='btn' data-bs-toggle='button'
-            id='underline'><i class='bi bi-type-underline'></i></button>
-    <button type='button' class='btn' data-bs-toggle='button'
-            id='strikethrough'><i class='bi bi-type-strikethrough'></i></button>
-    <div class='vr'></div>
-  </div>
+  <app-text-decoration></app-text-decoration>
 
   <!-- Justify options -->
-  <div class='btn-group'>
-    <input type='radio' class='btn-check' name='alignment' id='option1' autocomplete='off' checked>
-    <label class='btn' for='option1'>
-      <i class='bi bi-text-left'></i>
-    </label>
-
-    <input type='radio' class='btn-check' name='alignment' id='option2' autocomplete='off'>
-    <label class='btn' for='option2'>
-      <i class='bi bi-text-center'></i>
-    </label>
-
-    <input type='radio' class='btn-check' name='alignment' id='option3' autocomplete='off'>
-    <label class='btn' for='option3'>
-      <i class='bi bi-text-right'></i>
-    </label>
-    <div class='vr'></div>
-  </div>
+  <app-text-justify></app-text-justify>
 
   <!-- List options -->
-  <div class='btn-group'>
-    <input type='checkbox' #olElement (input)='changeListStyle($event, ulElement)' class='btn-check'
-           name='list'
-           id='ol'
-           autocomplete='off'>
-    <label class='btn' for='ol'>
-      <i class='bi bi-list-ol'></i>
-    </label>
+  <app-text-list></app-text-list>
 
-    <input type='checkbox' #ulElement (input)='changeListStyle($event, olElement)' class='btn-check'
-           name='list'
-           id='ul'
-           autocomplete='off'>
-    <label class='btn' for='ul'>
-      <i class='bi bi-list-ul'></i>
-    </label>
-    <div class='vr'></div>
-  </div>
+  <!--  Color  -->
+  <app-text-color></app-text-color>
 
-  <div class='btn-group'>
-    <div class='color-input-container'>
-      <div class='color-input'>
-        <button class='btn' style='font-weight: bold'>A</button>
-        <input (change)='changeColor($event)' type='color' value='#000' list>
-      </div>
-      <div style='width: 20px; height:4px' [ngStyle]="{'background-color': color}"></div>
-    </div>
-
-    <div class='color-input-container'>
-      <div class='color-input'>
-        <button class='btn'>
-          <i class='bi bi-paint-bucket'></i>
-        </button>
-        <input (change)='changeBgColor($event)' type='color' value='#000' list>
-      </div>
-      <div style='width: 20px; height:4px' [ngStyle]="{'background-color': bgColor}"></div>
-    </div>
-  </div>
 </div>
-
