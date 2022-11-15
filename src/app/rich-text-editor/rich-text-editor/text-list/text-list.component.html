@@ -1,0 +1,24 @@
+<div class="btn-group">
+  <input type="checkbox"
+         #olElement
+         (input)="changeListStyle($event, ulElement)"
+         class="btn-check"
+         name="list"
+         id="OrderedList">
+  <label class="btn"
+         for="OrderedList">
+    <i class="bi bi-list-ol"></i>
+  </label>
+
+  <input type="checkbox"
+         #ulElement
+         (input)="changeListStyle($event, olElement)"
+         class="btn-check"
+         name="list"
+         id="UnorderedList">
+  <label class="btn"
+         for="UnorderedList">
+    <i class="bi bi-list-ul"></i>
+  </label>
+  <div class="vr"></div>
+</div>

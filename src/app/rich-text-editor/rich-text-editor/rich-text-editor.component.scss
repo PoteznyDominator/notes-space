@@ -15,6 +15,7 @@
 #text-container {
   overflow-y: auto;
   outline: none;
+  max-width: 70vw;
 
   &[placeholder]:empty:before {
     content: attr(placeholder);

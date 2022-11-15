@@ -20,15 +20,4 @@ export class HeaderComponent implements OnInit {
   changeBgColor(e: Event) {
     this.bgColor = (e.target as HTMLInputElement).value;
   }
-
-  changeListStyle(e: Event, secondElement: HTMLInputElement) {
-    let element = e.target as HTMLInputElement;
-    if (element.checked) {
-      secondElement.checked = false;
-    }
-  }
-
-  addBold() {
-    document.execCommand('formatBlock', false, 'H1');
-  }
 }
