@@ -2,7 +2,9 @@
 <div class='content'>
   <input type='text' id='note-title' placeholder='Enter note title...' value='{{note.title}}'
          (keyup.enter)='focusTextContainer()'>
-  <div id='text-container' #textContainer contentEditable='true' (click)='log()' spellcheck='false'
+  <div id='text-container' #textContainer contentEditable='true' (input)="contentChange()"
+       [innerHTML]="note.content"
+       spellcheck='false'
        placeholder='Start writing, dragging files etc...'>
   </div>
 </div>

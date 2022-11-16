@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,14 @@ export class RichTextEditorService {
     list: '',
   };
 
-  constructor() {}
+  setFocus: Subject<boolean> = new Subject<boolean>();
+  contentSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  setFocus: EventEmitter<boolean> = new EventEmitter<boolean>();
+  constructor() {}
 
   modifyText(command: string, value: string = '') {
     document.execCommand(command, false, value);
-    this.setFocus.emit(true);
+    this.setFocus.next(true);
   }
 
   insertList(listType: string) {
@@ -23,7 +25,10 @@ export class RichTextEditorService {
     }
 
     this.options.list = listType;
-
     this.modifyText(`insert${listType}`);
+  }
+
+  getComponentContent() {
+    return this.contentSubject.getValue();
   }
 }

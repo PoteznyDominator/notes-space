@@ -12,10 +12,11 @@ import { NoteHeaderComponent } from './notes-panel/note/note-header/note-header.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { NotesGuard } from './notes-panel/_guards/notes-guard.service';
+import { NoteCanactivate } from './notes-panel/_guards/note-canactivate.service';
 import { TagsListComponent } from './sidebar/tags-list/tags-list.component';
 import { TagsGuard } from './sidebar/tags-list/_guards/tags-guard.service';
 import { RichTextEditorModule } from './rich-text-editor/rich-text-editor.module';
+import { NoteCanDeactivate } from './notes-panel/_guards/note-candeactivate.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { RichTextEditorModule } from './rich-text-editor/rich-text-editor.module
     NgbModule,
     RichTextEditorModule,
   ],
-  providers: [NotesGuard, TagsGuard],
+  providers: [NoteCanactivate, NoteCanDeactivate, TagsGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
