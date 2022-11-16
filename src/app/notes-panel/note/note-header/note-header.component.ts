@@ -12,16 +12,13 @@ export class NoteHeaderComponent implements OnInit {
   @Input() note: NoteModel;
   isRotated: boolean = false;
 
-  constructor(
-    private utilitiesService: UtilitiesService,
-    private noteService: NoteService
-  ) {}
+  constructor(private utilitiesService: UtilitiesService, private noteService: NoteService) {}
 
   ngOnInit(): void {}
 
   toggleSidebar() {
     this.isRotated = !this.isRotated;
-    this.utilitiesService.toggleSidebar.emit();
+    this.utilitiesService.toggleSidebar.next(true);
   }
 
   addTag(content: HTMLInputElement) {

@@ -1,7 +1,7 @@
 export interface NoteModel {
   id: number;
   title: string;
-  desc?: string;
+  content?: string;
   imageUrl?: string;
   date: Date;
   tags: Set<string>;

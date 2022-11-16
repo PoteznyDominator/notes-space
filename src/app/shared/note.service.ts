@@ -26,13 +26,13 @@ export class NoteService {
     initNote({
       id: 1,
       title: 'example note here to use',
-      desc: 'patatatata tatat ' + 'dasdasdasdasda sdasddddada' + ' dasdwdaeadaaaaaaa adadasdas',
+      content: 'patatatata tatat ' + 'dasdasdasdasda sdasddddada' + ' dasdwdaeadaaaaaaa adadasdas',
       imageUrl: 'https://picsum.photos/400/400',
     }),
     initNote({
       id: 2,
       title: 'dupa blada olelela adasdas',
-      desc:
+      content:
         'patatatata tatat dasda' +
         ' eadasd' +
         'dasdasdasdasda sdasddddada dasdwdaeadaaaaaaa adadasda',
@@ -40,19 +40,19 @@ export class NoteService {
     initNote({
       id: 3,
       title: 'example note here',
-      desc: 'kolega obok',
+      content: 'kolega obok',
       imageUrl: 'https://picsum.photos/400/500',
     }),
     initNote({
       id: 4,
       title: 'hasta la vista',
-      desc: 'z fartem',
+      content: 'z fartem',
       imageUrl: 'https://picsum.photos/200/300',
     }),
     initNote({
       id: 5,
       title: 'hasta la vista',
-      desc: 'z fartem',
+      content: 'z fartem',
     }),
   ];
 

@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -6,5 +7,5 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class UtilitiesService {
   constructor() {}
 
-  toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
+  toggleSidebar: Subject<boolean> = new Subject<boolean>();
 }
