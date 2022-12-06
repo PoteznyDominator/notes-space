@@ -3,18 +3,9 @@
     <button (click)="toggleSidebar()" class="expand-btn">
       <i class="bi bi-chevron-left" [ngClass]="{ rotated: isRotated }"></i>
     </button>
-    <span
-      class="tag badge rounded-pill bg-primary"
-      *ngFor="let tag of note.tags"
-    >
-      <span class="tag-name">{{ tag }}</span>
-      <button
-        (click)="removeTag(tag)"
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-      ></button>
-    </span>
+    <div *ngFor="let tag of note.tags">
+      <app-tag (remove)="removeTag(tag)" [tag]="tag"></app-tag>
+    </div>
 
     <input
       #inputTag

@@ -1,12 +1,8 @@
 <div class="container">
   <div class="text-container">
-    <h5 class="title" [ngClass]="{ 'max-width': note.imageUrl }">
+    <h5 class="title">
       {{ note.title }}
     </h5>
-    <p class="description" [ngClass]="{ 'max-width': note.imageUrl }">
-      {{ note.content }}
-    </p>
     <p class="date">{{ displayDate() }}</p>
   </div>
-  <img *ngIf="note.imageUrl" src="{{ note.imageUrl }}" alt="" />
 </div>
