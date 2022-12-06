@@ -2,7 +2,7 @@ export interface NoteModel {
   id: number;
   title: string;
   content?: string;
-  imageUrl?: string;
+  imageUrl?: string; // for now image are not used
   date: Date;
   tags: Set<string>;
 }

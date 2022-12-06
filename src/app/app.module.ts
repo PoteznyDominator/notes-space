@@ -17,6 +17,7 @@ import { TagsListComponent } from './sidebar/tags-list/tags-list.component';
 import { TagsGuard } from './sidebar/tags-list/_guards/tags-guard.service';
 import { RichTextEditorModule } from './rich-text-editor/rich-text-editor.module';
 import { NoteCanDeactivate } from './notes-panel/_guards/note-candeactivate.service';
+import { TagComponent } from './notes-panel/note/note-header/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NoteCanDeactivate } from './notes-panel/_guards/note-candeactivate.serv
     HomeComponent,
     ErrorPageComponent,
     TagsListComponent,
+    TagComponent,
   ],
   imports: [
     BrowserModule,
